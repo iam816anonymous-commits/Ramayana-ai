@@ -10,3 +10,7 @@ async def get_daily_quote():
 @router.get("/wisdom")
 async def get_daily_wisdom():
     return {"wisdom": "The path of duty is the way to glory."}
+
+@router.get("/health")
+async def health():
+    return {"status": "healthy", "service": "daily"}

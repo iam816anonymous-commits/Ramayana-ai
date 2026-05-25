@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScriptureCard from '@/components/ScriptureCard';
+import Diya from '@/components/Diya';
+import Pillar from '@/components/Pillar';
 
 interface SanctumResponse {
   reflection: string;
@@ -25,7 +27,6 @@ export default function SanctumPage() {
     setStatus('Consulting the eternal records...');
 
     try {
-      // Simulate steps of the "Brain"
       setTimeout(() => setStatus('Synthesizing fragments of wisdom...'), 1500);
 
       const res = await fetch('http://localhost:8000/api/sanctum/reflect', {
@@ -39,7 +40,7 @@ export default function SanctumPage() {
         setResponse(data);
         setLoading(false);
         setStatus('');
-      }, 3000); // Artificial delay for "reflection"
+      }, 3000);
 
     } catch (error) {
       console.error('Sanctum error:', error);
@@ -49,88 +50,86 @@ export default function SanctumPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center pt-32 pb-32 p-6 bg-sacred-dark selection:bg-sacred-gold/30 overflow-y-auto">
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]" />
+    <div className="min-h-screen flex flex-col items-center pt-32 pb-32 p-6 bg-sacred-dark selection:bg-sacred-gold/30 overflow-y-auto relative">
+      {/* Background Textures & Architecture */}
+      <div className="fixed top-0 left-0 w-full h-full pointer-events-none opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/black-paper.png')] z-0" />
+      <div className="fixed top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent z-0 opacity-60" />
 
+      <Pillar side="left" />
+      <Pillar side="right" />
+
+      {/* Main Title Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 2 }}
-        className="text-center mb-32 space-y-4 relative z-10"
+        className="text-center mb-32 space-y-6 relative z-10"
       >
-        <h1 className="text-sacred-gold text-7xl font-serif tracking-[-0.05em] lowlight">Sanctum</h1>
-        <p className="text-sacred-warm/40 italic text-xl tracking-widest font-light">Sit. Ask. Reflect.</p>
+        <div className="flex justify-center mb-8">
+           <Diya />
+        </div>
+        <h1 className="text-sacred-gold text-8xl font-serif tracking-[-0.05em] lowlight">Sanctum</h1>
+        <div className="h-[1px] w-48 bg-gradient-to-r from-transparent via-sacred-gold/40 to-transparent mx-auto" />
+        <p className="text-sacred-warm/40 italic text-xl tracking-[0.3em] font-light uppercase">The Eternal Intelligence</p>
       </motion.div>
 
+      {/* Input Field (The Threshold) */}
       <motion.div
-        animate={{ opacity: response ? 0.2 : 1, scale: response ? 0.98 : 1 }}
+        animate={{ opacity: response ? 0.15 : 1, scale: response ? 0.98 : 1 }}
         transition={{ duration: 1 }}
         className="w-full max-w-2xl mb-32 relative z-10"
       >
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleReflect()}
-          placeholder="What seek you in the eternal story?"
-          className="w-full bg-transparent border-b border-sacred-gold/20 py-8 px-4 text-4xl font-serif focus:outline-none focus:border-sacred-gold text-sacred-warm placeholder:text-sacred-warm/10 transition-all duration-1000"
-        />
-        <div className="absolute right-4 bottom-8 flex items-center gap-6">
+        <div className="relative group">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleReflect()}
+            placeholder="Inscribe your inquiry..."
+            className="w-full bg-transparent border-b border-sacred-gold/20 py-10 px-4 text-4xl font-serif focus:outline-none focus:border-sacred-gold/60 text-sacred-warm placeholder:text-sacred-warm/5 transition-all duration-1000 text-center"
+          />
+          <div className="absolute inset-x-0 bottom-0 h-[1px] bg-sacred-gold/10 group-hover:bg-sacred-gold/30 transition-all duration-1000" />
+        </div>
+
+        <div className="absolute inset-x-0 -bottom-16 flex flex-col items-center gap-6">
            <AnimatePresence>
              {loading && (
-               <motion.span
-                 initial={{ opacity: 0, x: 10 }}
-                 animate={{ opacity: 1, x: 0 }}
+               <motion.div
+                 initial={{ opacity: 0, y: 10 }}
+                 animate={{ opacity: 1, y: 0 }}
                  exit={{ opacity: 0 }}
-                 className="text-sacred-gold/40 text-[10px] uppercase tracking-[0.3em] animate-pulse"
+                 className="flex flex-col items-center gap-4"
                >
-                 {status}
-               </motion.span>
+                 <span className="text-sacred-gold/40 text-[10px] uppercase tracking-[0.5em] animate-pulse">
+                   {status}
+                 </span>
+                 <div className="w-1 h-12 bg-gradient-to-b from-sacred-gold/40 to-transparent" />
+               </motion.div>
              )}
            </AnimatePresence>
-           <button
-            onClick={handleReflect}
-            disabled={loading}
-            className="text-sacred-gold/60 hover:text-sacred-gold transition-all disabled:opacity-0 uppercase text-xs tracking-[0.4em] font-bold"
-          >
-            {response ? 'Ask Again' : 'Reflect'}
-          </button>
+           {!loading && (
+             <button
+              onClick={handleReflect}
+              className="text-sacred-gold/40 hover:text-sacred-gold transition-all uppercase text-[10px] tracking-[0.6em] font-bold border border-sacred-gold/10 px-8 py-3 rounded-full hover:bg-sacred-gold/5"
+            >
+              {response ? 'Seek Further' : 'Seek Wisdom'}
+            </button>
+           )}
         </div>
       </motion.div>
 
+      {/* Results (The Revelation) */}
       <AnimatePresence mode="wait">
         {response && (
           <ScriptureCard key="scripture" data={response} />
         )}
       </AnimatePresence>
 
-      {loading && !response && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="flex flex-col items-center gap-8 py-12"
-        >
-          <div className="relative w-32 h-32">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-              className="absolute inset-0 border border-sacred-gold/10 rounded-full"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-              className="absolute inset-4 border border-sacred-gold/5 rounded-full"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-               <div className="w-1.5 h-1.5 bg-sacred-gold/40 rounded-full blur-[2px] animate-pulse" />
-            </div>
-          </div>
-        </motion.div>
-      )}
+      {/* Decorative Floor */}
+      <div className="fixed bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent pointer-events-none opacity-80" />
 
-      <div className="fixed bottom-8 text-[9px] text-sacred-warm/20 uppercase tracking-[0.5em] font-medium">
-        Ramayana Mythology Intelligence
+      <div className="fixed bottom-8 text-[9px] text-sacred-warm/20 uppercase tracking-[0.8em] font-medium z-20">
+        Ramayana Mythology Intelligence • Phase I
       </div>
     </div>
   );

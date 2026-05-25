@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.api import characters, timeline, sanctum
+from backend.app.api import characters, timeline, sanctum, daily
 from backend.app.ingestion.pipeline import ingestion_pipeline
 
 app = FastAPI(title="Ramayana AI API")
@@ -21,6 +21,7 @@ app.add_middleware(
 app.include_router(sanctum.router, prefix="/api/sanctum", tags=["sanctum"])
 app.include_router(characters.router, prefix="/api/characters", tags=["characters"])
 app.include_router(timeline.router, prefix="/api/timeline", tags=["timeline"])
+app.include_router(daily.router, prefix="/api/daily", tags=["daily"])
 
 @app.get("/")
 async def root():
