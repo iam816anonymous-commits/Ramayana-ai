@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import List
 
 class SanctumResponse(BaseModel):
     reflection: str
@@ -6,19 +7,31 @@ class SanctumResponse(BaseModel):
     context: str
     takeaway: str
     type: str
+    brain_synthesis: str # Added to show the Brain's work
 
 class SageAgent:
-    async def format_wisdom(self, raw_data: str, query: str) -> SanctumResponse:
-        # In production, this would use a specific prompt to an LLM
-        # to ensure the "Reflection -> Meaning -> Context -> Takeaway" structure.
+    async def format_wisdom(self, brain_thought: dict) -> SanctumResponse:
+        query = brain_thought["query"]
+        wisdom = brain_thought["wisdom_nugget"]
+        connections = brain_thought["connections"]
 
-        # Simulating Sage wisdom:
+        # Sage transforms the Brain's synthesis into scripture-style formatting
+        reflection = f"The inquiry into '{query}' reveals a path through the eternal story."
+
+        meaning = f"In the records of the past, we find: {wisdom[:150]}..."
+        if connections:
+            meaning += f" This is tied to {', '.join(connections)}."
+
+        context = "This fragment is preserved in the annals of Dharma."
+        takeaway = "Let your actions be guided by truth, not desire."
+
         return SanctumResponse(
-            reflection=f"The inquiry into '{query}' reveals a path of deep contemplation.",
-            meaning=f"In the light of the eternal Dharma, {raw_data[:100]}...",
-            context="This teaching originates from the sacred events of the Ayodhya Kanda.",
-            takeaway="Walk the path of duty, even when the shadows grow long.",
-            type="moral"
+            reflection=reflection,
+            meaning=meaning,
+            context=context,
+            takeaway=takeaway,
+            type="philosophical",
+            brain_synthesis=brain_thought["synthesis"]
         )
 
 sage_agent = SageAgent()
