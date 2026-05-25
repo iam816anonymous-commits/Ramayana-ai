@@ -2,7 +2,8 @@ import httpx
 import time
 
 def test_chat():
-    url = "http://localhost:8000/api/chat/"
+    # Updated to match the backend router prefix
+    url = "http://localhost:8000/api/characters/"
     payload = {
         "character": "Rama",
         "message": "Why did you accept the exile?"

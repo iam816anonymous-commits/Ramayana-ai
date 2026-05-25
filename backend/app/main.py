@@ -1,8 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.api import characters, timeline, sanctum
+from backend.app.ingestion.pipeline import ingestion_pipeline
 
 app = FastAPI(title="Ramayana AI API")
+
+@app.on_event("startup")
+async def startup_event():
+    print("Starting auto-discovery and ingestion...")
+    ingestion_pipeline.scan_data_folder()
 
 app.add_middleware(
     CORSMiddleware,

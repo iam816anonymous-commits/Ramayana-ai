@@ -9,6 +9,7 @@ services:
       - DATABASE_URL=postgresql://user:pass@postgres:5432/ramayana
       - NEO4J_URI=bolt://neo4j:7687
       - REDIS_URL=redis://redis:6379/0
+      - QDRANT_URL=http://qdrant:6333
     depends_on:
       - postgres
       - neo4j
