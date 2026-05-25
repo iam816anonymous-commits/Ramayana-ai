@@ -27,7 +27,9 @@ export default function SanctumPage() {
     setStatus('Consulting the eternal records...');
 
     try {
-      setTimeout(() => setStatus('Synthesizing fragments of wisdom...'), 1500);
+      setTimeout(() => setStatus('Synthesizing fragments of wisdom...'), 1200);
+      setTimeout(() => setStatus('Seeker Agent challenging the insight...'), 2400);
+      setTimeout(() => setStatus('Refining dialectical truth...'), 3600);
 
       const res = await fetch('http://localhost:8000/api/sanctum/reflect', {
         method: 'POST',
