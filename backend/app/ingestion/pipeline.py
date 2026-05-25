@@ -1,11 +1,11 @@
 import os
 import glob
-from backend.app.ingestion.json_loader import JSONLoader
-from backend.app.ingestion.txt_loader import TXTLoader
-from backend.app.ingestion.pdf_loader import PDFLoader
-from backend.app.ingestion.cleaner import Cleaner
-from backend.app.ingestion.chunker import Chunker
-from backend.app.ingestion.embedding_pipeline import EmbeddingPipeline
+from app.ingestion.json_loader import JSONLoader
+from app.ingestion.txt_loader import TXTLoader
+from app.ingestion.pdf_loader import PDFLoader
+from app.ingestion.cleaner import Cleaner
+from app.ingestion.chunker import Chunker
+from app.ingestion.embedding_pipeline import EmbeddingPipeline
 
 class IngestionPipeline:
     def __init__(self):

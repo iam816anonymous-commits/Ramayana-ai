@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.api import characters, timeline, sanctum, daily
-from backend.app.ingestion.pipeline import ingestion_pipeline
+from app.api import characters, timeline, sanctum, daily
+from app.ingestion.pipeline import ingestion_pipeline
 
 app = FastAPI(title="Ramayana AI API")
 

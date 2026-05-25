@@ -1,7 +1,7 @@
-from backend.app.core.retrieval import retrieval_service
-from backend.app.core.knowledge_graph import knowledge_graph
-from backend.app.agents.seeker import seeker_agent
-from backend.app.services.brain_store import brain_store
+from app.core.retrieval import retrieval_service
+from app.core.knowledge_graph import knowledge_graph
+from app.agents.seeker import seeker_agent
+from app.services.brain_store import brain_store
 import hashlib
 
 class BrainAgent:

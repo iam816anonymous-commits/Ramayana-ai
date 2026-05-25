@@ -5,7 +5,7 @@ from sentence_transformers import SentenceTransformer
 # Add the project root to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from backend.app.core.vector_store import vector_db
+from app.core.vector_store import vector_db
 
 def ingest():
     # Initialize model
@@ -17,7 +17,7 @@ def ingest():
     vector_db.ensure_collection(vector_size)
 
     # Read data
-    with open('data/sample_ramayana.txt', 'r') as f:
+    with open('data/txt/sample_ramayana.txt', 'r') as f:
         text = f.read()
 
     # Simple chunking by paragraph

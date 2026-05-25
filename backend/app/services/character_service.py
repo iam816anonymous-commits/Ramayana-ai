@@ -1,6 +1,6 @@
-from backend.app.core.characters import PERSONAS
-from backend.app.core.retrieval import retrieval_service
-from backend.app.services.llm_interface import SimulatedLLM
+from app.core.characters import PERSONAS
+from app.core.retrieval import retrieval_service
+from app.services.llm_interface import SimulatedLLM
 
 class ChatService:
     def __init__(self, llm=SimulatedLLM()):

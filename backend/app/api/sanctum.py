@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from backend.app.agents.orchestrator import orchestrator
-from backend.app.agents.sage import SanctumResponse
+from app.agents.orchestrator import orchestrator
+from app.agents.sage import SanctumResponse
 
 router = APIRouter()
 

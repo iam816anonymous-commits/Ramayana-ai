@@ -1,8 +1,8 @@
 import hashlib
 import uuid
 from sentence_transformers import SentenceTransformer
-from backend.app.core.vector_store import vector_db
-from backend.app.models.metadata import metadata_store
+from app.core.vector_store import vector_db
+from app.models.metadata import metadata_store
 
 class EmbeddingPipeline:
     def __init__(self, model_name='all-MiniLM-L6-v2'):

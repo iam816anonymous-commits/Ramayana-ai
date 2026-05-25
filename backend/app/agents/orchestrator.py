@@ -1,5 +1,5 @@
-from backend.app.agents.brain import brain_agent
-from backend.app.agents.sage import sage_agent
+from app.agents.brain import brain_agent
+from app.agents.sage import sage_agent
 
 class Orchestrator:
     async def process_query(self, query: str):

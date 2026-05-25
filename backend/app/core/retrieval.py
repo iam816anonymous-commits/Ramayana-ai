@@ -1,6 +1,6 @@
 import os
 from sentence_transformers import SentenceTransformer
-from backend.app.core.vector_store import vector_db
+from app.core.vector_store import vector_db
 
 class RetrievalService:
     def __init__(self, model_name='all-MiniLM-L6-v2'):
