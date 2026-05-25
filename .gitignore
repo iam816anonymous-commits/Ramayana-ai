@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.log
+qdrant_storage/
+node_modules/
+.next/
+dist/
+.env
