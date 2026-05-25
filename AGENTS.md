@@ -17,7 +17,7 @@
 ## Technical Commands
 
 ### Running the System
-- **Backend:** `export PYTHONPATH=$PYTHONPATH:. && python3 -m backend.app.main`
+- **Backend:** `export PYTHONPATH=$PYTHONPATH:. && uvicorn backend.app.main:app`
 - **Frontend:** `npm run dev`
 - **Qdrant:** (Ensure local instance is running on port 6333)
 

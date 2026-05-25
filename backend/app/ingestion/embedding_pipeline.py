@@ -1,4 +1,5 @@
 import hashlib
+import uuid
 from sentence_transformers import SentenceTransformer
 from backend.app.core.vector_store import vector_db
 from backend.app.models.metadata import metadata_store
@@ -21,10 +22,14 @@ class EmbeddingPipeline:
         ids = []
         payloads = []
 
+        # Namespace for deterministic UUIDs
+        namespace = uuid.UUID('6ba7b810-9dad-11d1-80b4-00c04fd430c8') # DNS Namespace as base
+
         for i, (doc, emb) in enumerate(zip(processed_docs, embeddings)):
-            # Use deterministic ID based on content hash to avoid duplication
+            # Use deterministic UUID based on content hash to avoid duplication
+            # and ensure strict UUID format compatibility.
             content_hash = hashlib.md5(doc['text'].encode()).hexdigest()
-            point_id = content_hash
+            point_id = str(uuid.uuid5(namespace, content_hash))
 
             ids.append(point_id)
             payloads.append({

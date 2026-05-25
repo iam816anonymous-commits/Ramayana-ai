@@ -21,16 +21,18 @@ export default function TimelinePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-[#0a0a0a] p-8 font-serif">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Ramayana Timeline</h1>
-        <p className="text-gray-600 mb-12 italic text-lg">
+        <h1 className="text-4xl font-bold text-[#d4af37] mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          Ramayana Timeline
+        </h1>
+        <p className="text-[#a0a0a0] mb-12 italic text-lg border-l-2 border-[#d4af37]/30 pl-4">
           Journey through the sacred events of the Ramayana.
         </p>
 
         {loading ? (
           <div className="flex justify-center py-20">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#d4af37]"></div>
           </div>
         ) : (
           <Timeline events={events} />

@@ -34,7 +34,7 @@ Ramayana AI is not just a chatbot; it is a **Sacred Sanctum**. The platform focu
    cd backend
    pip install -r requirements.txt
    export PYTHONPATH=$PYTHONPATH:.
-   python3 -m backend.app.main
+   uvicorn backend.app.main:app --reload
    ```
 2. **Frontend:**
    ```bash
