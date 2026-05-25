@@ -1,5 +1,5 @@
-from backend.app.core.personas import PERSONAS
-from backend.app.services.retrieval import retrieval_service
+from backend.app.core.characters import PERSONAS
+from backend.app.core.retrieval import retrieval_service
 from backend.app.services.llm_interface import SimulatedLLM
 
 class ChatService:

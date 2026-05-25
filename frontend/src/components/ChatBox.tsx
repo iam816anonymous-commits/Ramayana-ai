@@ -21,7 +21,7 @@ export default function ChatBox({ character }: { character: string }) {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:8000/api/chat/', {
+      const res = await fetch('http://localhost:8000/api/characters/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ character, message: input }),

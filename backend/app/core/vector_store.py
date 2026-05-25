@@ -1,9 +1,17 @@
+import os
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams
 
 class VectorDBService:
-    def __init__(self, location=":memory:"):
-        self.client = QdrantClient(location=location)
+    def __init__(self):
+        # Use QDRANT_URL if provided (for Docker), else fallback to local path
+        qdrant_url = os.getenv("QDRANT_URL", "http://localhost:6333")
+        try:
+            self.client = QdrantClient(url=qdrant_url)
+            self.client.get_collections() # Test connection
+        except Exception:
+            self.client = QdrantClient(path="qdrant_storage")
+
         self.collection_name = "ramayana_docs"
 
     def ensure_collection(self, vector_size: int):
