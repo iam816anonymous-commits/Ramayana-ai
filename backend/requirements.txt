@@ -5,3 +5,4 @@ pydantic
 sentence-transformers
 httpx
 PyPDF2
+nltk

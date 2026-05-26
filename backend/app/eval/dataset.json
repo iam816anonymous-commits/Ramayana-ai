@@ -1,0 +1,17 @@
+[
+  {
+    "query": "Why did Rama accept exile?",
+    "expected_themes": ["Dharma", "Duty"],
+    "expected_keywords": ["Kaikeyi", "boons", "Dasharatha"]
+  },
+  {
+    "query": "What is the relationship between Rama and Hanuman?",
+    "expected_themes": ["Bhakti", "Devotion"],
+    "expected_keywords": ["servant", "friendship", "Lanka"]
+  },
+  {
+    "query": "Who is Ravana?",
+    "expected_themes": ["Ego", "Power"],
+    "expected_keywords": ["Lanka", "ten-headed", "Brahmin"]
+  }
+]

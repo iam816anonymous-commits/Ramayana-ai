@@ -6,12 +6,29 @@ import ScriptureCard from '@/components/ScriptureCard';
 import Diya from '@/components/Diya';
 import Pillar from '@/components/Pillar';
 
+interface Source {
+  content: string;
+  score: number;
+  type?: string;
+  shloka?: string;
+  translation?: string;
+  verse_ref?: string;
+  book?: string;
+  metadata: {
+    source?: string;
+    book?: string;
+    chapter?: string;
+    verse_ref?: string;
+  };
+}
+
 interface SanctumResponse {
   reflection: string;
   meaning: string;
   context: string;
   takeaway: string;
   brain_synthesis: string;
+  sources?: Source[];
 }
 
 export default function SanctumPage() {

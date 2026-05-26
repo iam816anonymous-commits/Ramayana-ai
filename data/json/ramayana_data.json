@@ -2,11 +2,24 @@
   {
     "event": "Rama Exile",
     "description": "Queen Kaikeyi asked for Rama to be exiled to the forest for fourteen years.",
-    "teaching": "The value of keeping one's word and prioritizing dharma over personal gain."
+    "teaching": "The value of keeping one's word and prioritizing dharma over personal gain.",
+    "themes": ["Dharma", "Tyaga", "Commitment"]
   },
   {
     "character": "Hanuman",
     "traits": ["devotion", "strength", "humility"],
-    "description": "The supreme devotee of Rama who leap across the ocean to find Sita."
+    "description": "The supreme devotee of Rama who leap across the ocean to find Sita. Hanuman represents the power of bhakti and the strength derived from selfless service.",
+    "themes": ["Bhakti", "Service", "Strength"]
+  },
+  {
+    "character": "Ravana",
+    "traits": ["ego", "power", "scholarship"],
+    "description": "The ten-headed king of Lanka who abducted Sita. Despite his great knowledge of the Vedas and his devotion to Shiva, his ego and lack of control over his desires led to his downfall.",
+    "themes": ["Ego", "Power", "Adharma"]
+  },
+  {
+    "event": "Finding Sita",
+    "description": "Hanuman discovered Sita in the Ashoka Vatika of Lanka, delivering Rama's ring as a token of hope.",
+    "themes": ["Hope", "Devotion", "Intelligence"]
   }
 ]

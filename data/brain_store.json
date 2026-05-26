@@ -1,98 +1,296 @@
 {
-  "what is the essence of hanuman's strength?": {
-    "base_synthesis": "Synthesizing 5 sacred fragments interwoven with themes of Bhakti (Devotion), Aranya (Wilderness Reflection) into a singular vision...",
-    "challenge": "Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 5 sacred fragments interwoven with th...)",
-    "refined_synthesis": "Synthesizing 5 sacred fragments interwoven with themes of Bhakti (Devotion), Aranya (Wilderness Reflection) into a singular vision... Further deepened by resolving: Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 5 sacred fragments interwoven with th...)",
+  "why did rama accept exile?": {
+    "base_synthesis": "Based on the sacred texts provided, the core essence is one of unyielding devotion and the pursuit of Dharma, even in the face of absolute exile.",
+    "challenge": "Challenge from the Seeker: What lesson does this hold for a seeker in the modern age? (Based on: Based on the sacred texts provided, the core essen...)",
+    "refined_synthesis": "Based on the sacred texts provided, the core essence is one of unyielding devotion and the pursuit of Dharma, even in the face of absolute exile.\n\n[Dialectical Resolution]: Challenge from the Seeker: What lesson does this hold for a seeker in the modern age? (Based on: Based on the sacred texts provided, the core essen...)",
     "themes": [
-      "Bhakti (Devotion)",
-      "Aranya (Wilderness Reflection)"
+      "Dharma",
+      "Bhakti"
+    ],
+    "fragments": [
+      {
+        "content": "event: Rama Exile\ndescription: Queen Kaikeyi asked for Rama to be exiled to the forest for fourteen years.\nteaching: The value of keeping one's word and prioritizing dharma over personal gain.",
+        "score": 0.6578510681598975,
+        "metadata": {}
+      },
+      {
+        "content": "event: Rama Exile\ndescription: Queen Kaikeyi asked for Rama to be exiled to the forest for fourteen years.\nteaching: The value of keeping one's word and prioritizing dharma over personal gain.",
+        "score": 0.6578510681598975,
+        "metadata": {}
+      },
+      {
+        "content": "event: Rama Exile\ndescription: Queen Kaikeyi asked for Rama to be exiled to the forest for fourteen years.\nteaching: The value of keeping one's word and prioritizing dharma over personal gain.",
+        "score": 0.6578510681598975,
+        "metadata": {}
+      },
+      {
+        "content": "ol of Rama's authority while he ruled as a regent.",
+        "score": 0.64805964591239,
+        "metadata": {}
+      },
+      {
+        "content": "ol of Rama's authority while he ruled as a regent.",
+        "score": 0.6480596459123897,
+        "metadata": {}
+      }
     ]
   },
-  "what is the essence of devotion?": {
-    "base_synthesis": "Synthesizing 5 sacred fragments interwoven with themes of Dharma (Eternal Law), Bhakti (Devotion), Aranya (Wilderness Reflection) into a singular vision...",
-    "challenge": "Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 5 sacred fragments interwoven with th...)",
-    "refined_synthesis": "Synthesizing 5 sacred fragments interwoven with themes of Dharma (Eternal Law), Bhakti (Devotion), Aranya (Wilderness Reflection) into a singular vision... Further deepened by resolving: Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 5 sacred fragments interwoven with th...)",
+  "what is the relationship between rama and hanuman?": {
+    "base_synthesis": "Based on the sacred texts provided, the core essence is one of unyielding devotion and the pursuit of Dharma, even in the face of absolute exile.",
+    "challenge": "Challenge from the Seeker: If What is the relationship between Rama and Hanuman? is true, how does it reconcile with the core tenet of Dharma? (Based on: Based on the sacred texts provided, the core essen...)",
+    "refined_synthesis": "Based on the sacred texts provided, the core essence is one of unyielding devotion and the pursuit of Dharma, even in the face of absolute exile.\n\n[Dialectical Resolution]: Challenge from the Seeker: If What is the relationship between Rama and Hanuman? is true, how does it reconcile with the core tenet of Dharma? (Based on: Based on the sacred texts provided, the core essen...)",
     "themes": [
-      "Dharma (Eternal Law)",
-      "Bhakti (Devotion)",
-      "Aranya (Wilderness Reflection)"
+      "Dharma",
+      "Bhakti"
+    ],
+    "fragments": [
+      {
+        "content": "character: Hanuman\ntraits: devotion, strength, humility\ndescription: The supreme devotee of Rama who leap across the ocean to find Sita.",
+        "score": 0.6589049118130803,
+        "metadata": {
+          "source": "data/json/ramayana_data.json",
+          "type": "json_record",
+          "characters": [
+            "Rama",
+            "Sita",
+            "Hanuman"
+          ],
+          "locations": [],
+          "concepts": []
+        }
+      },
+      {
+        "content": "Bal Kanda: The Story of Rama's Birth and Childhood\nThe Bal Kanda describes the birth of Rama to King Dasharatha and Queen Kausalya in Ayodhya. Dasharatha, the king of Kosala, had three wives but no children. After performing a sacred sacrifice (yagna), he was blessed with four sons: Rama, Bharata, and the twins Lakshmana and Shatrughna. Rama and Lakshmana were mentored by the sage Vishwamitra, who took them to protect his forest hermitage from demons. Rama successfully defeated the demoness Tataka and later protected the sage's sacrifice from Maricha and Subahu. During their journey, Vishwamitra took them to Mithila, where Rama won the hand of Sita, the daughter of King Janaka, by lifting and breaking the heavy bow of Lord Shiva. Ayodhya Kanda: The Exile of Rama\nThe Ayodhya Kanda begins with King Dasharatha's decision to crown Rama as the crown prince. However, Queen Kaikeyi, influenced by her maid Manthara, demanded two boons that the king had promised her long ago. She asked for her son Bharata to be crowned king and for Rama to be exiled to the Dandaka forest for fourteen years.",
+        "score": 0.5440107616812366,
+        "metadata": {
+          "source": "data/txt/sample_ramayana.txt",
+          "type": "txt_document",
+          "filename": "sample_ramayana.txt",
+          "characters": [
+            "Rama",
+            "Sita",
+            "Lakshmana",
+            "Dasharatha",
+            "Kaikeyi"
+          ],
+          "locations": [
+            "Ayodhya",
+            "Dandaka",
+            "Mithila"
+          ],
+          "concepts": []
+        }
+      },
+      {
+        "content": "She asked for her son Bharata to be crowned king and for Rama to be exiled to the Dandaka forest for fourteen years. Rama, ever dutiful and committed to dharma (righteousness), accepted the exile without hesitation to honor his father's word. Sita and Lakshmana insisted on accompanying him. The trio crossed the Ganges and entered the forest, leaving the city of Ayodhya in deep mourning. King Dasharatha, heartbroken by the separation from his beloved son, soon passed away. Bharata, who was away during these events, returned to Ayodhya and was horrified by his mother's actions. He refused to take the throne and went to the forest to find Rama, begging him to return. Rama refused, insisting on fulfilling his father's promise. Bharata eventually returned with Rama's sandals, placing them on the throne as a symbol of Rama's authority while he ruled as a regent.",
+        "score": 0.4336505629017498,
+        "metadata": {
+          "source": "data/txt/sample_ramayana.txt",
+          "type": "txt_document",
+          "filename": "sample_ramayana.txt",
+          "characters": [
+            "Rama",
+            "Sita",
+            "Lakshmana",
+            "Dasharatha"
+          ],
+          "locations": [
+            "Ayodhya",
+            "Dandaka"
+          ],
+          "concepts": [
+            "Dharma"
+          ]
+        }
+      },
+      {
+        "content": "event: Rama Exile\ndescription: Queen Kaikeyi asked for Rama to be exiled to the forest for fourteen years. teaching: The value of keeping one's word and prioritizing dharma over personal gain.",
+        "score": 0.38330985400033035,
+        "metadata": {
+          "source": "data/json/ramayana_data.json",
+          "type": "json_record",
+          "characters": [
+            "Rama",
+            "Kaikeyi"
+          ],
+          "locations": [],
+          "concepts": [
+            "Dharma"
+          ]
+        }
+      }
     ]
   },
-  "what is the importance of dharma in the forest exile?": {
-    "base_synthesis": "Synthesizing 5 sacred fragments interwoven with themes of Dharma (Eternal Law), Bhakti (Devotion), Aranya (Wilderness Reflection) into a singular vision...",
-    "challenge": "Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 5 sacred fragments interwoven with th...)",
-    "refined_synthesis": "Synthesizing 5 sacred fragments interwoven with themes of Dharma (Eternal Law), Bhakti (Devotion), Aranya (Wilderness Reflection) into a singular vision... Further deepened by resolving: Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 5 sacred fragments interwoven with th...)",
+  "who is ravana?": {
+    "base_synthesis": "Based on the sacred texts provided, the core essence is one of unyielding devotion and the pursuit of Dharma, even in the face of absolute exile.",
+    "challenge": "Challenge from the Seeker: If Who is Ravana? is true, how does it reconcile with the core tenet of Dharma? (Based on: Based on the sacred texts provided, the core essen...)",
+    "refined_synthesis": "Based on the sacred texts provided, the core essence is one of unyielding devotion and the pursuit of Dharma, even in the face of absolute exile.\n\n[Dialectical Resolution]: Challenge from the Seeker: If Who is Ravana? is true, how does it reconcile with the core tenet of Dharma? (Based on: Based on the sacred texts provided, the core essen...)",
     "themes": [
-      "Dharma (Eternal Law)",
-      "Bhakti (Devotion)",
-      "Aranya (Wilderness Reflection)"
+      "Dharma",
+      "Bhakti"
+    ],
+    "fragments": [
+      {
+        "content": "character: Hanuman\ntraits: devotion, strength, humility\ndescription: The supreme devotee of Rama who leap across the ocean to find Sita.",
+        "score": 0.3242537987294536,
+        "metadata": {
+          "source": "data/json/ramayana_data.json",
+          "type": "json_record",
+          "characters": [
+            "Rama",
+            "Sita",
+            "Hanuman"
+          ],
+          "locations": [],
+          "concepts": []
+        }
+      },
+      {
+        "content": "Bal Kanda: The Story of Rama's Birth and Childhood\nThe Bal Kanda describes the birth of Rama to King Dasharatha and Queen Kausalya in Ayodhya. Dasharatha, the king of Kosala, had three wives but no children. After performing a sacred sacrifice (yagna), he was blessed with four sons: Rama, Bharata, and the twins Lakshmana and Shatrughna. Rama and Lakshmana were mentored by the sage Vishwamitra, who took them to protect his forest hermitage from demons. Rama successfully defeated the demoness Tataka and later protected the sage's sacrifice from Maricha and Subahu. During their journey, Vishwamitra took them to Mithila, where Rama won the hand of Sita, the daughter of King Janaka, by lifting and breaking the heavy bow of Lord Shiva. Ayodhya Kanda: The Exile of Rama\nThe Ayodhya Kanda begins with King Dasharatha's decision to crown Rama as the crown prince. However, Queen Kaikeyi, influenced by her maid Manthara, demanded two boons that the king had promised her long ago. She asked for her son Bharata to be crowned king and for Rama to be exiled to the Dandaka forest for fourteen years.",
+        "score": 0.22446378459562974,
+        "metadata": {
+          "source": "data/txt/sample_ramayana.txt",
+          "type": "txt_document",
+          "filename": "sample_ramayana.txt",
+          "characters": [
+            "Rama",
+            "Sita",
+            "Lakshmana",
+            "Dasharatha",
+            "Kaikeyi"
+          ],
+          "locations": [
+            "Ayodhya",
+            "Dandaka",
+            "Mithila"
+          ],
+          "concepts": []
+        }
+      },
+      {
+        "content": "event: Rama Exile\ndescription: Queen Kaikeyi asked for Rama to be exiled to the forest for fourteen years. teaching: The value of keeping one's word and prioritizing dharma over personal gain.",
+        "score": 0.20765791282548202,
+        "metadata": {
+          "source": "data/json/ramayana_data.json",
+          "type": "json_record",
+          "characters": [
+            "Rama",
+            "Kaikeyi"
+          ],
+          "locations": [],
+          "concepts": [
+            "Dharma"
+          ]
+        }
+      },
+      {
+        "content": "She asked for her son Bharata to be crowned king and for Rama to be exiled to the Dandaka forest for fourteen years. Rama, ever dutiful and committed to dharma (righteousness), accepted the exile without hesitation to honor his father's word. Sita and Lakshmana insisted on accompanying him. The trio crossed the Ganges and entered the forest, leaving the city of Ayodhya in deep mourning. King Dasharatha, heartbroken by the separation from his beloved son, soon passed away. Bharata, who was away during these events, returned to Ayodhya and was horrified by his mother's actions. He refused to take the throne and went to the forest to find Rama, begging him to return. Rama refused, insisting on fulfilling his father's promise. Bharata eventually returned with Rama's sandals, placing them on the throne as a symbol of Rama's authority while he ruled as a regent.",
+        "score": 0.18649649435523832,
+        "metadata": {
+          "source": "data/txt/sample_ramayana.txt",
+          "type": "txt_document",
+          "filename": "sample_ramayana.txt",
+          "characters": [
+            "Rama",
+            "Sita",
+            "Lakshmana",
+            "Dasharatha"
+          ],
+          "locations": [
+            "Ayodhya",
+            "Dandaka"
+          ],
+          "concepts": [
+            "Dharma"
+          ]
+        }
+      }
     ]
   },
-  "tell me about hanuman's devotion.": {
-    "base_synthesis": "Synthesizing 5 sacred fragments interwoven with themes of Dharma (Eternal Law), Bhakti (Devotion), Aranya (Wilderness Reflection) into a singular vision...",
-    "challenge": "Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 5 sacred fragments interwoven with th...)",
-    "refined_synthesis": "Synthesizing 5 sacred fragments interwoven with themes of Dharma (Eternal Law), Bhakti (Devotion), Aranya (Wilderness Reflection) into a singular vision... Further deepened by resolving: Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 5 sacred fragments interwoven with th...)",
+  "what is the essence of dharma?": {
+    "base_synthesis": "Based on the sacred texts provided, the core essence is one of unyielding devotion and the pursuit of Dharma, even in the face of absolute exile.",
+    "challenge": "Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Based on the sacred texts provided, the core essen...)",
+    "refined_synthesis": "Based on the sacred texts provided, the core essence is one of unyielding devotion and the pursuit of Dharma, even in the face of absolute exile.\n\n[Dialectical Resolution]: Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Based on the sacred texts provided, the core essen...)",
     "themes": [
-      "Dharma (Eternal Law)",
-      "Bhakti (Devotion)",
-      "Aranya (Wilderness Reflection)"
-    ]
-  },
-  "ol of rama's authority while he ruled as a regent....": {
-    "base_synthesis": "Synthesizing 1 sacred fragments into a singular vision...",
-    "challenge": "Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 1 sacred fragments into a singular vi...)",
-    "refined_synthesis": "Synthesizing 1 sacred fragments into a singular vision... Further deepened by resolving: Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 1 sacred fragments into a singular vi...)",
-    "themes": []
-  },
-  "hya in deep mourning. king dasharatha, heartbroken...": {
-    "base_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Bhakti (Devotion), Aranya (Wilderness Reflection) into a singular vision...",
-    "challenge": "Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "refined_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Bhakti (Devotion), Aranya (Wilderness Reflection) into a singular vision... Further deepened by resolving: Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "themes": [
-      "Bhakti (Devotion)",
-      "Aranya (Wilderness Reflection)"
-    ]
-  },
-  "by her maid manthara, demanded two boons that the...": {
-    "base_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Dharma (Eternal Law), Aranya (Wilderness Reflection) into a singular vision...",
-    "challenge": "Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "refined_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Dharma (Eternal Law), Aranya (Wilderness Reflection) into a singular vision... Further deepened by resolving: Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "themes": [
-      "Dharma (Eternal Law)",
-      "Aranya (Wilderness Reflection)"
-    ]
-  },
-  "mons. rama successfully defeated the demoness tata...": {
-    "base_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Aranya (Wilderness Reflection) into a singular vision...",
-    "challenge": "Challenge from the Seeker: What lesson does this hold for a seeker in the modern age? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "refined_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Aranya (Wilderness Reflection) into a singular vision... Further deepened by resolving: Challenge from the Seeker: What lesson does this hold for a seeker in the modern age? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "themes": [
-      "Aranya (Wilderness Reflection)"
-    ]
-  },
-  "bal kanda: the story of rama's birth and childhood...": {
-    "base_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Aranya (Wilderness Reflection) into a singular vision...",
-    "challenge": "Challenge from the Seeker: What lesson does this hold for a seeker in the modern age? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "refined_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Aranya (Wilderness Reflection) into a singular vision... Further deepened by resolving: Challenge from the Seeker: What lesson does this hold for a seeker in the modern age? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "themes": [
-      "Aranya (Wilderness Reflection)"
-    ]
-  },
-  "character: hanuman\ntraits: devotion, strength, hum...": {
-    "base_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Bhakti (Devotion) into a singular vision...",
-    "challenge": "Challenge from the Seeker: What lesson does this hold for a seeker in the modern age? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "refined_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Bhakti (Devotion) into a singular vision... Further deepened by resolving: Challenge from the Seeker: What lesson does this hold for a seeker in the modern age? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "themes": [
-      "Bhakti (Devotion)"
-    ]
-  },
-  "event: rama exile\ndescription: queen kaikeyi asked...": {
-    "base_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Dharma (Eternal Law), Aranya (Wilderness Reflection) into a singular vision...",
-    "challenge": "Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "refined_synthesis": "Synthesizing 1 sacred fragments interwoven with themes of Dharma (Eternal Law), Aranya (Wilderness Reflection) into a singular vision... Further deepened by resolving: Challenge from the Seeker: Is there a contradiction between the actions taken and the ultimate goal? (Based on: Synthesizing 1 sacred fragments interwoven with th...)",
-    "themes": [
-      "Dharma (Eternal Law)",
-      "Aranya (Wilderness Reflection)"
+      "Dharma",
+      "Bhakti"
+    ],
+    "fragments": [
+      {
+        "content": "character: Hanuman\ntraits: devotion, strength, humility\ndescription: The supreme devotee of Rama who leap across the ocean to find Sita.",
+        "score": 0.27086841449000476,
+        "metadata": {
+          "source": "data/json/ramayana_data.json",
+          "type": "json_record",
+          "characters": [
+            "Rama",
+            "Sita",
+            "Hanuman"
+          ],
+          "locations": [],
+          "concepts": []
+        }
+      },
+      {
+        "content": "event: Rama Exile\ndescription: Queen Kaikeyi asked for Rama to be exiled to the forest for fourteen years. teaching: The value of keeping one's word and prioritizing dharma over personal gain.",
+        "score": 0.25794315047396393,
+        "metadata": {
+          "source": "data/json/ramayana_data.json",
+          "type": "json_record",
+          "characters": [
+            "Rama",
+            "Kaikeyi"
+          ],
+          "locations": [],
+          "concepts": [
+            "Dharma"
+          ]
+        }
+      },
+      {
+        "content": "Bal Kanda: The Story of Rama's Birth and Childhood\nThe Bal Kanda describes the birth of Rama to King Dasharatha and Queen Kausalya in Ayodhya. Dasharatha, the king of Kosala, had three wives but no children. After performing a sacred sacrifice (yagna), he was blessed with four sons: Rama, Bharata, and the twins Lakshmana and Shatrughna. Rama and Lakshmana were mentored by the sage Vishwamitra, who took them to protect his forest hermitage from demons. Rama successfully defeated the demoness Tataka and later protected the sage's sacrifice from Maricha and Subahu. During their journey, Vishwamitra took them to Mithila, where Rama won the hand of Sita, the daughter of King Janaka, by lifting and breaking the heavy bow of Lord Shiva. Ayodhya Kanda: The Exile of Rama\nThe Ayodhya Kanda begins with King Dasharatha's decision to crown Rama as the crown prince. However, Queen Kaikeyi, influenced by her maid Manthara, demanded two boons that the king had promised her long ago. She asked for her son Bharata to be crowned king and for Rama to be exiled to the Dandaka forest for fourteen years.",
+        "score": 0.171830426795909,
+        "metadata": {
+          "source": "data/txt/sample_ramayana.txt",
+          "type": "txt_document",
+          "filename": "sample_ramayana.txt",
+          "characters": [
+            "Rama",
+            "Sita",
+            "Lakshmana",
+            "Dasharatha",
+            "Kaikeyi"
+          ],
+          "locations": [
+            "Ayodhya",
+            "Dandaka",
+            "Mithila"
+          ],
+          "concepts": []
+        }
+      },
+      {
+        "content": "She asked for her son Bharata to be crowned king and for Rama to be exiled to the Dandaka forest for fourteen years. Rama, ever dutiful and committed to dharma (righteousness), accepted the exile without hesitation to honor his father's word. Sita and Lakshmana insisted on accompanying him. The trio crossed the Ganges and entered the forest, leaving the city of Ayodhya in deep mourning. King Dasharatha, heartbroken by the separation from his beloved son, soon passed away. Bharata, who was away during these events, returned to Ayodhya and was horrified by his mother's actions. He refused to take the throne and went to the forest to find Rama, begging him to return. Rama refused, insisting on fulfilling his father's promise. Bharata eventually returned with Rama's sandals, placing them on the throne as a symbol of Rama's authority while he ruled as a regent.",
+        "score": 0.12298100274007051,
+        "metadata": {
+          "source": "data/txt/sample_ramayana.txt",
+          "type": "txt_document",
+          "filename": "sample_ramayana.txt",
+          "characters": [
+            "Rama",
+            "Sita",
+            "Lakshmana",
+            "Dasharatha"
+          ],
+          "locations": [
+            "Ayodhya",
+            "Dandaka"
+          ],
+          "concepts": [
+            "Dharma"
+          ]
+        }
+      }
     ]
   }
 }

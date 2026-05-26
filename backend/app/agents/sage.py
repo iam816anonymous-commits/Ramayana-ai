@@ -1,5 +1,6 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional, Dict, Any
+from app.services.llm_service import llm_service
 
 class SanctumResponse(BaseModel):
     reflection: str
@@ -7,41 +8,57 @@ class SanctumResponse(BaseModel):
     context: str
     takeaway: str
     type: str
-    brain_synthesis: str # Added to show the Brain's work
+    brain_synthesis: str
+    sources: List[Dict[str, Any]] = []
 
 class SageAgent:
     async def format_wisdom(self, brain_thought: dict) -> SanctumResponse:
         """
-        The Sage Agent acts as the bridge between raw intelligence and the user.
-        It wraps insights in a poetic, philosophical, and sacred tone.
+        The Sage Agent uses an LLM to wrap the Brain's raw synthesis in a sacred tone.
         """
         query = brain_thought["query"]
-        wisdom = brain_thought["wisdom_nugget"]
-        connections = brain_thought["connections"]
+        synthesis = brain_thought["synthesis"]
+        fragments = brain_thought.get("all_fragments", [])
 
-        # Sage transforms the Brain's synthesis into scripture-style formatting
-        reflection = f"Your inquiry into '{query}' has resonated through the halls of time."
+        prompt = f"""
+        Transform the following technical synthesis into a poetic and philosophical 'Sanctum Response'.
+        The response must be structured in four distinct parts:
+        1. Reflection: A short, resonant opening regarding the user's inquiry.
+        2. Meaning: The core philosophical essence of the synthesis.
+        3. Context: Where this truth sits within the wider Ramayana universe.
+        4. Takeaway: A practical, meditative lesson for the seeker.
 
-        # Determine tone based on the content
-        if "silence" in wisdom or "void" in brain_thought["synthesis"]:
-             meaning = "The fragments of the past are currently obscured, yet the path remains clear for those who seek with a pure heart."
-             context = "The unwritten chronicles of the Cosmos."
-             takeaway = "Patience is the first step toward true understanding."
-        else:
-            meaning = f"The sacred records reveal: {wisdom[:250]}..."
-            if connections:
-                meaning += f" This wisdom is bound to the essences of {', '.join(connections)}."
+        User Query: {query}
+        Synthesis: {synthesis}
 
-            context = "This truth was distilled from the ancient songs of the Ramayana."
-            takeaway = "Heed the echoes of the ancestors; their steps have carved the way."
+        Structure the output as JSON.
+        """
 
-        return SanctumResponse(
-            reflection=reflection,
-            meaning=meaning,
-            context=context,
-            takeaway=takeaway,
-            type="wisdom",
-            brain_synthesis=brain_thought["synthesis"]
-        )
+        raw_response = await llm_service.generate(prompt, system_prompt="You are the Sage of the Sanctum.")
+
+        try:
+            import json
+            # Attempt to parse JSON response from Sage LLM
+            data = json.loads(raw_response)
+            return SanctumResponse(
+                reflection=data.get("reflection", f"The query '{query}' echoes in the void."),
+                meaning=data.get("meaning", synthesis),
+                context=data.get("context", "Distilled from the eternal song."),
+                takeaway=data.get("takeaway", "Seek the truth within."),
+                type="wisdom",
+                brain_synthesis=synthesis,
+                sources=fragments
+            )
+        except:
+            # Poetic fallback
+            return SanctumResponse(
+                reflection=f"The inquiry into '{query}' resonates deeply.",
+                meaning=synthesis,
+                context="Drawn from the ancient scrolls.",
+                takeaway="Let the wisdom guide your path.",
+                type="wisdom",
+                brain_synthesis=synthesis,
+                sources=fragments
+            )
 
 sage_agent = SageAgent()

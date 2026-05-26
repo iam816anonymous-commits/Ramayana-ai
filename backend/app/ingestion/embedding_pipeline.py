@@ -34,7 +34,7 @@ class EmbeddingPipeline:
             ids.append(point_id)
             payloads.append({
                 "text": doc['text'],
-                **doc['metadata']
+                "metadata": doc['metadata']
             })
             metadata_store.store_document_metadata(point_id, doc['metadata'])
 

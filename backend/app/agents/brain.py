@@ -2,92 +2,100 @@ from app.core.retrieval import retrieval_service
 from app.core.knowledge_graph import knowledge_graph
 from app.agents.seeker import seeker_agent
 from app.services.brain_store import brain_store
+from app.services.llm_service import llm_service
+from app.services.context_merger import context_merger
+from app.services.theme_extractor import theme_extractor
+from app.core.observability import obs
 import hashlib
 
 class BrainAgent:
     """
     The Brain Agent acts as the central intelligence of the Ramayana AI.
-    It "learns" by processing retrieved context and maintaining a synthesized
-    view of the mythology.
+    It synthesizes retrieved context into cohesive mythological insights.
     """
     def __init__(self):
-        self.memory_cache = {} # Synthetic memory of processed topics
+        self.memory_cache = {}
 
-    async def learn_from_context(self, context_chunks: list, query: str = ""):
+    async def learn_from_context(self, fragments: list, query: str = ""):
         """
-        Simulates the process of 'learning' or synthesizing a topic.
-        The Brain Agent identifies patterns and thematic resonance across fragments,
-        then engages in a dialogue with the Seeker Agent to refine the wisdom.
+        Synthesizes sacred fragments into a singular vision using real LLM logic.
         """
-        if not context_chunks:
-            return "Seeking clarity in the void..."
+        if not fragments:
+            return "Seeking clarity in the void...", []
 
-        combined_text = " ".join(context_chunks)
+        # 1. Merge Context
+        merged_context = context_merger.merge(fragments)
 
-        # Enhanced synthesis logic: identifying themes
-        themes = []
-        if any(word in combined_text.lower() for word in ["dharma", "duty", "right"]):
-            themes.append("Dharma (Eternal Law)")
-        if any(word in combined_text.lower() for word in ["bhakti", "devotion", "love"]):
-            themes.append("Bhakti (Devotion)")
-        if any(word in combined_text.lower() for word in ["war", "battle", "astra"]):
-            themes.append("Shastra (Martial Wisdom)")
-        if any(word in combined_text.lower() for word in ["forest", "exile", "vanavasa"]):
-            themes.append("Aranya (Wilderness Reflection)")
+        # 2. LLM Synthesis
+        prompt = f"""
+        Given the following sacred fragments related to '{query}', synthesize a coherent
+        explanation that captures the philosophical and narrative essence.
 
-        theme_str = f" interwoven with themes of {', '.join(themes)}" if themes else ""
-        base_synthesis = f"Synthesizing {len(context_chunks)} sacred fragments{theme_str} into a singular vision..."
+        {merged_context}
 
-        # Dialectical Refinement: Brain asks Seeker to challenge this synthesis
+        Synthesis:
+        """
+        base_synthesis = await llm_service.generate(prompt, system_prompt="You are the synthesis engine of the Ramayana AI.")
+
+        # 3. Extract Themes
+        themes = await theme_extractor.extract_themes(base_synthesis)
+
+        # 4. Dialectical Refinement: Brain asks Seeker to challenge this synthesis
         challenge = await seeker_agent.pose_challenge(base_synthesis, query)
 
-        # Refine the synthesis based on the challenge (simulated)
-        refined_synthesis = f"{base_synthesis} Further deepened by resolving: {challenge}"
+        # 5. Final Refinement (Simplified for Phase 1.5)
+        refined_synthesis = f"{base_synthesis}\n\n[Dialectical Resolution]: {challenge}"
 
-        # Store in BrainStore for future use
+        # Store in BrainStore
         brain_store.store_wisdom(query, {
             "base_synthesis": base_synthesis,
             "challenge": challenge,
             "refined_synthesis": refined_synthesis,
-            "themes": themes
+            "themes": themes,
+            "fragments": fragments
         })
 
-        return refined_synthesis
+        return refined_synthesis, themes
 
+    @obs.trace_agent("BrainAgent")
     async def consult_brain(self, query: str):
         """
         Coordinates the retrieval and synthesis process.
         """
-        # 1. Check BrainStore first for pre-refined wisdom (Optimization: skip RAG if found)
+        # 1. Check BrainStore first for pre-refined wisdom
         stored = brain_store.get_wisdom(query)
         if stored:
              return {
                 "query": query,
-                "synthesis": f"{stored['refined_synthesis']} (Retrieved from Eternal Memory)",
-                "wisdom_nugget": "This wisdom is already established in our collective memory.",
-                "all_fragments": [],
+                "synthesis": stored['refined_synthesis'],
+                "wisdom_nugget": "Established wisdom from the collective memory.",
+                "all_fragments": stored.get('fragments', []),
                 "connections": [],
+                "themes": stored.get('themes', []),
                 "certainty": 1.0
             }
 
-        # 2. Retrieve raw context (the 'eternal memory')
-        raw_context = retrieval_service.retrieve_context(query, limit=5)
+        # 2. Retrieve raw context
+        enriched_fragments = retrieval_service.retrieve_context(query, limit=5)
+        obs.log_retrieval(query, enriched_fragments)
 
-        # 3. Learn/Synthesize the specific context for this query (with Dialectical Refinement)
-        synthesis_note = await self.learn_from_context(raw_context, query=query)
+        # 3. Synthesize
+        synthesis_note, themes = await self.learn_from_context(enriched_fragments, query=query)
 
-        # 3. Consult the Knowledge Graph for deeper relations
+        # 4. Knowledge Graph relations
         relations = await knowledge_graph.get_relations(query)
 
-        # 4. Final 'Thought' synthesis
-        # Combining RAG, KG, and thematic synthesis
+        # 5. Final Thought synthesis
+        obs.log_synthesis("Brain", query, synthesis_note)
+
         thought = {
             "query": query,
             "synthesis": synthesis_note,
-            "wisdom_nugget": raw_context[0] if raw_context else "Even in silence, there is a lesson to be found.",
-            "all_fragments": raw_context,
+            "wisdom_nugget": enriched_fragments[0]['content'] if enriched_fragments else "Silence is the first teacher.",
+            "all_fragments": enriched_fragments,
             "connections": relations,
-            "certainty": 0.85 if raw_context else 0.1
+            "themes": themes,
+            "certainty": 0.85 if enriched_fragments else 0.1
         }
 
         return thought
