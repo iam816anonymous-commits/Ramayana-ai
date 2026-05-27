@@ -1,6 +1,7 @@
 import os
 import glob
 from app.ingestion.json_loader import JSONLoader
+from app.ingestion.valmiki_loader import valmiki_loader
 from app.ingestion.txt_loader import TXTLoader
 from app.ingestion.pdf_loader import PDFLoader
 from app.ingestion.csv_loader import CSVLoader
@@ -41,9 +42,14 @@ class IngestionPipeline:
 
         # 1. JSON
         for filepath in glob.glob(os.path.join(root_dir, "json", "*.json")):
-            print(f"Loading JSON: {filepath}")
-            docs = self.json_loader.load(filepath)
-            all_processed_docs.extend(self._process_generic_docs(docs))
+            if "Valmiki_Ramayan_Shlokas.json" in filepath:
+                print(f"Loading specialized Valmiki JSON: {filepath}")
+                docs = valmiki_loader.load(filepath)
+                all_processed_docs.extend(self._process_shloka_docs(docs, is_direct=True))
+            else:
+                print(f"Loading JSON: {filepath}")
+                docs = self.json_loader.load(filepath)
+                all_processed_docs.extend(self._process_generic_docs(docs))
 
         # 2. TXT
         for filepath in glob.glob(os.path.join(root_dir, "txt", "**", "*.txt"), recursive=True):
@@ -82,9 +88,11 @@ class IngestionPipeline:
                 processed.append({"text": chunk, "metadata": metadata})
         return processed
 
-    def _process_shloka_docs(self, shlokas):
+    def _process_shloka_docs(self, shlokas, is_direct=False):
         # Shlokas are treated as individual units, no semantic chunking across them
-        shlokas = self.shloka_proc.process(shlokas)
+        if not is_direct:
+            shlokas = self.shloka_proc.process(shlokas)
+
         processed = []
         for s in shlokas:
             entities = self.extractor.extract(s['text'])

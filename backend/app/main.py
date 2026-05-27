@@ -2,18 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api import characters, timeline, sanctum, daily
 from app.ingestion.pipeline import ingestion_pipeline
-from github.data_fetcher import data_fetcher
-from config.github_config import AUTO_SYNC
 
 app = FastAPI(title="Ramayana AI API")
 
 @app.on_event("startup")
 async def startup_event():
-    if AUTO_SYNC:
-        print("Triggering GitHub Data Sync...")
-        data_fetcher.fetch_all()
-
-    print("Starting auto-discovery and ingestion...")
+    print("Starting auto-discovery and ingestion from local data...")
     ingestion_pipeline.scan_data_folder()
 
 app.add_middleware(

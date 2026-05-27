@@ -1,6 +1,14 @@
 from fastapi import APIRouter
+from app.ingestion.pipeline import ingestion_pipeline
 
 router = APIRouter()
+
+@router.post("/reindex")
+async def reindex():
+    """Manually trigger a full re-ingestion of local data."""
+    print("Manual re-indexing triggered...")
+    ingestion_pipeline.scan_data_folder(reset=True)
+    return {"status": "success", "message": "Re-indexing complete"}
 
 @router.get("/quote")
 async def get_daily_quote():
